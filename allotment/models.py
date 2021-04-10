@@ -53,7 +53,7 @@ class Hostel(models.Model):
     vacant_beds = models.IntegerField()
 
     def __str__(self):
-        return self.name
+        return self.hostel_name
 
 class Room(models.Model):
     room_choice = [('SGL', 'Single Occupancy'), ('DLB', 'Double Occupancy'), ('TLB', 'Triple Occupancy')]
@@ -64,7 +64,7 @@ class Room(models.Model):
     hostel = models.ForeignKey('Hostel', on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return self.room_name
 
 #?????????????????????????????????
 class Course(models.Model):
