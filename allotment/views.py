@@ -36,11 +36,11 @@ def register(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return redirect('login/edit/')
+                    return redirect('login')
                 else:
-                    return HttpResponse('Disabled account')
+                    return HttpResponse(''Disabled account'')
             else:
-                return HttpResponse('Invalid Login')
+                return HttpResponse(''Invalid Login'')
     else:
         form = UserRegisterForm()
         args = {'form': form}
@@ -62,7 +62,7 @@ def user_login(request):
                 if user.is_active:
                     login(request, user)
                     student = request.user.student
-                    return render(request, 'allotmrnt/profile.html', {'student': student})
+                    return render(request, 'allotment/profile.html', {'student': student})
                 else:
                     return HttpResponse('Disabled account')
             else:
